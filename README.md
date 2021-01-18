@@ -1,2 +1,83 @@
 # epic1midterm-villamor
-Creating a mandala outpu using p5.js
+Creating a mandala output using p5.js Web Editor.
+
+Here is the code of my the mandala output that I made.  
+
+function setup() {
+  createCanvas(720, 400);
+  background(204);
+
+}
+
+function circleRing(tx, ty, ts, angle, factor = 20) {
+  
+  this.x = tx;
+  this.y = ty;
+  this.size = ts;
+
+  push();
+  translate(this.x, this.y);
+  rotate(angle);
+  fill(0, 0, 0, 0);
+  ellipse(this.size / 4, 0, this.size / factor, this.size / factor);
+  pop();
+}
+
+function triangleRing(or = 150, ir = 100, np = 10, a = 0) {
+
+  x = width / 2;
+  y = height / 2;
+  let outsideRadius = or;
+  let insideRadius = ir;
+  let numPoints = np;
+  let angle = a;
+  let angleStep = 180.0 / numPoints;
+  
+  beginShape(TRIANGLE_STRIP);
+  
+  for (let i = 0; i <= numPoints; i++) {
+    let px = x + cos(radians(angle)) * outsideRadius;
+    let py = y + sin(radians(angle)) * outsideRadius;
+    angle += angleStep;
+    vertex(px, py);
+    px = x + cos(radians(angle)) * insideRadius;
+    py = y + sin(radians(angle)) * insideRadius;
+    vertex(px, py);
+    angle += angleStep;
+  }
+  endShape();
+
+}
+
+function draw() {
+  centerx = width / 2
+  centery = height / 2
+  background(230, 165, 149);
+  ellipse(width / 2, height / 2, 390, 390);
+  ellipse(width / 2, height / 2, 385, 385);
+
+  for (let x = 0; x <= 42; x += 2) {
+    e = new circleRing(centerx, centery, 590, x + 5, 10)
+    e = new circleRing(centerx, centery, 590, x + 5, 13)
+  }
+
+  ellipse(width / 2, height / 2, 300, 300);
+
+  triangleRing(150, 100, 10);
+  triangleRing(150, 100, 5);
+
+  for (let x = 0; x <= 42; x += 2) {
+    e = new circleRing(centerx, centery, 685, x)
+    e = new circleRing(centerx, centery, 685, x, 30)
+  }
+  
+  ellipse(width / 2, height / 2, 200, 200);
+  
+  
+  triangleRing(100, 60, 30);
+  
+  for (let x = 0; x <= 42; x += 2) {
+    e = new circleRing(centerx, centery, 220, x)
+  }
+  triangleRing(50, 30, 10);
+}
