@@ -6,3 +6,5 @@ The references that I used for making the mandala output:
 https://p5js.org/reference/
 https://www.youtube.com/watch?v=76fiD5DvzeQ
 https://www.youtube.com/watch?v=c3TeLi6Ns1E
+
+The additional topic that I'd like to learn about graphics programming is 3D modeling. Using softwares like Blender, Autodesk Maya and more. 
